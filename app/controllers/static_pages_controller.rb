@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+
+  # 中身書かないと、views/home/indexを表示
   def home
   end
 
@@ -6,5 +8,8 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+  end
+
+  def contact
   end
 end
