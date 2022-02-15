@@ -1,53 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%=full_title(yield(:title))%></title>
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-
-    <%# これは、IE9未満の時のみ発動 %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style type="text/tailwindcss">
-        .primary-btn {
-                    @apply py-[6px] px-[20px] rounded-md bg-blue-500 text-white cursor-pointer inline border border-2 border-blue-500 duration-300 hover:bg-white hover:text-blue-500 ;
-            }
-            .secondary-btn {
-                    @apply py-[6px] px-[20px] rounded-md bg-gray-500 text-white inline;
-            }
-            .danger-btn {
-                @apply py-[6px] px-[20px] rounded-md bg-red-500 text-white cursor-pointer inline border border-2 border-red-500 duration-300 hover:bg-white hover:text-red-500 ;
-            }
-    </style>
-  </head>
+  <%= render "layouts/head" %>
 
   <body>
-    <header>
-      <div>
-        <nav>
-          <ul class="flex gap-4 mb-10">
-            <li><%= link_to "Home", "#"%></li>
-            <li><%= link_to root_path do%>Root<%end%></li>
-            <li><%= link_to static_pages_help_path do%>Help<%end%></li>
-            <li><%= link_to "About", static_pages_about_path %></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </nav>  
-      </div>
-    </header>
-    <div class="container">
+    <%# パーシャルを呼び出す(コンポーネントを呼ぶ) %>
+    <%= render "layouts/header" %>
+    
+    <div class="container mt-96 md:mt-48">
       <%# yieldが、child %>
       <%= yield %>
+    <%= render "layouts/footer"%>
     </div>
+
   </body>
 </html>
