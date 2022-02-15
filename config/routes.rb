@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   # root "application#hello"
   root "static_pages#home"
 
-  # getメソッドを受け取るとき
-  get 'static_pages/home'
-  get 'static_pages/help'
-
-  get 'static_pages/about'
-  get 'static_pages/contact'
+  # pathを通す
+  # 使うときはstatic_pages_help_path
+  # get 'static_pages/help'
+  # get 'static_pages/about'
+  # get 'static_pages/contact'
+  
+  # 使うときは /help_path に省略できる
+  get "/help", to: 'static_pages#help', as: "helf"
+  get "/about", to: 'static_pages#about'
+  get "/contact", to: 'static_pages#contact'
 end

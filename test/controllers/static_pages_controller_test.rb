@@ -17,20 +17,24 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get help" do
-    get static_pages_help_url # これは変数でpathが入っている
+    # get static_pages_help_url # これは変数でpathが入っている
+    get help_path
     assert_response :success
     assert_select "title", "Help | #{@base_title}"
   end
 
   test "should get about" do
-    get static_pages_about_url
+    # get static_pages_about_url
+    get help_about
     assert_response :success
     assert_select "title", "About | #{@base_title}"
   end
 
   test "should get contact" do
-    get static_pages_contact_url
+    # get static_pages_contact_url
+    get help_contact
     assert_response :success
     assert_select "title", "Contact | #{@base_title}"
   end
+
 end

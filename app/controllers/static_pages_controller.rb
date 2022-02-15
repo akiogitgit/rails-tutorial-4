@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  # 中身書かないと、views/home/indexを表示
+  # クラス内のメソッド。メソッド名だけを定義するだけで、viewsに飛ぶ
   def home
   end
 
