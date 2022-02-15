@@ -17,6 +17,17 @@
     <![endif]-->
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        .primary-btn {
+                    @apply py-[6px] px-[20px] rounded-md bg-blue-500 text-white cursor-pointer inline border border-2 border-blue-500 duration-300 hover:bg-white hover:text-blue-500 ;
+            }
+            .secondary-btn {
+                    @apply py-[6px] px-[20px] rounded-md bg-gray-500 text-white inline;
+            }
+            .danger-btn {
+                @apply py-[6px] px-[20px] rounded-md bg-red-500 text-white cursor-pointer inline border border-2 border-red-500 duration-300 hover:bg-white hover:text-red-500 ;
+            }
+    </style>
   </head>
 
   <body>
