@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # これで、full_title()関数を使えるようにする。
+  include ApplicationHelper
 end

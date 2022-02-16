@@ -35,4 +35,5 @@ group :test do
   gem "webdrivers"
   gem "minitest"
   gem "minitest-reporters"
+  gem 'rails-controller-testing'
 end
