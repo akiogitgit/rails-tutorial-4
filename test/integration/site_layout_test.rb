@@ -7,7 +7,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
 
     # リンクが正しいかのテスト
-    assert_template "static_pages/home"
+    assert_template "static_pages/home" # アクセスできる？
+    #             このタグをテスト
     assert_select "a[href=?]", root_path #, count: 2 # ロゴと、ヘッダーに２つある場合
     assert_select "a[href=?]", help_path # ?にpathが入る
     assert_select "a[href=?]", about_path
@@ -18,5 +19,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # test_helperで、full_titleを使えるようにする。
     get contact_path
     assert_select "title", full_title("Contact")
+
+    get signup_path
+    assert_select "title", full_title("Sign up")
   end
 end

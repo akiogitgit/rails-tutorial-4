@@ -2,10 +2,10 @@
 <% provide(:title, "Home") %> <%# 変数を定義, 下で使う %>
 
 <div>
-  <h1 class="btn secondary-btn">Welcome to the Sample App</h1>
+  <h1 class="btn primary-btn">Welcome to the Sample App</h1>
   <h2>This is the home page for the Ruby on Rails Tutorial</h2>
 
-  <%= link_to "Sign up", "#", class: "primary-btn" %>
+  <%= link_to "Sign up", signup_path, class: "primary-btn" %>
 </div>
 
 <%= link_to image_tag("rails.svg", alt: "Rails", width: "200px"), "https://rubyonrails.org/" %>
