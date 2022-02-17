@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # [\w+-.]+で英数字_+.一つ以上、[a-z\d\-]
   #uniqueness: true # 同じのはダメよ
 
+  # before_save { self.email = email.downcase } # saveする前に、emailを小文字に
+  before_save { email.downcase! } # 省略可能
 
   # 制約 ( : の位置気を付けて)
   validates :name, presence: true, length: { maximum:50 }
