@@ -12,4 +12,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum:255 },
   format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }, # .を連続しない
   uniqueness: { case_sensitive: false } # 大小関係なく同じのダメよ
+
+  # 仮想的なpassword, password_confirmation属性が追加されている (右はpwd確認)
+  has_secure_password
+
+  validates :password, presence: true, length: { minimum:6 } # presenceは空白もダメ
+  # validates :password_confirmation, length: { minimum:6 } # こっちいらん
 end
