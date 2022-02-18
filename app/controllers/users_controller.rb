@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     # @user = User.new(params[:user]) # postリクエストから情報を受け取る。だが、これだと怪しい情報も付与されるかも。必要な情報だけ受け取るようにする必要あり
     @user = User.new(user_params)
     if @user.save
+      # 保存成功処理
     else
       render "new"
     end
@@ -26,8 +27,7 @@ class UsersController < ApplicationController
   private
 
   # 外部から使えないように、必要ない情報は受け取らないようにする。
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password,:password_confirmation)
+    end
 end
