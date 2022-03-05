@@ -1,2 +1,37 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<% if flash[:notice] %>
+  <div class="p-4 mb-10 w-full font-bold bg-green-300 border-2 border-green-400 rounded"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:error].instance_of?(Array) %>
+  <ul class="p-4 mb-10 w-full font-bold bg-red-300 border-2 border-red-400 rounded">
+    <% flash[:error].each do |msg| %>
+      <li class="mb-2"><%= msg %></li>
+    <% end %>
+  </ul>
+<% elsif flash[:error] %>
+  <p class="p-4 mb-10 w-full font-bold bg-red-300 border-2 border-red-400 rounded"><%= flash[:error] %></p>
+<% end %>
+
+<!-- ユーザー登録form -->
+<%= form_with model: @user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "" %>
+    <%= f.text_field :name, class: "form-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "" %>
+    <%= f.text_field :email, class: "form-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, class: "" %>
+    <%= f.password_field :password, class: "form-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "" %>
+    <%= f.password_field :password_confirmation, class: "form-input" %>
+  </div>
+
+  <%= f.submit "作成", class: "primary-btn" %>
+<% end %>
