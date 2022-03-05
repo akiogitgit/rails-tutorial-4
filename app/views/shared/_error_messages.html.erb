@@ -1,15 +1,24 @@
+<%# submitした時のvalidateエラー %>
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
-      <%# pluralizeで、errorとerrorsを正しく変更してくれる %>
     </div>
     <ul>
-      <% @user.errors.full_messages.each do |err|%>
-        <li><%= err %></li>
-      <% end %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
   </div>
 <% else %>
   <div>errorないよ</div>
 <% end %>
+<%= @user.errors.messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+
+<%# @user に保存できてないか、createの情報をnewに持ってこれていない %>
+<ul>
+  <li><%= @user.name %></li>
+  <li><%= @user.email %></li>
+</ul>
